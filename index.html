@@ -298,7 +298,7 @@ input[type="submit"]:hover {
         const year = document.getElementById('year').value;
         const club = document.getElementById('club').value;
 
-        const message = `【送信内容】\n氏名: ${name}\n大学名: ${university}\n学年: ${year}\n部活動名: ${club}`;
+        const message = `【送信内容】\n${name}\n${university}\n${year}\n${club}`;
 
         // LIFFを使用してメッセージを送信
         if (liff.isLoggedIn()) {
