@@ -4,84 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>初回登録フォーム</title>
-　　<style>
-	  body {
-    font-family: Arial, sans-serif;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 15px;
-}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 15px;
+        }
 
-h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-    font-size: 24px;
-}
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
 
-.form-group {
-    margin-bottom: 15px;
-}
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 14px;
-}
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
 
-input, select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
 
-select {
-    line-height: 5; /* 縦幅を倍に設定 */
-}
+        select {
+            line-height: 5; /* 縦幅を倍に設定 */
+        }
 
-input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 12px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-}
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
 
-input[type="submit"]:hover {
-    background-color: #45a049;
-}
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
 
-.university-selection {
-    display: flex;
-    gap: 10px;
-    flex-direction: row; /* 同一行に配置 */
-}
+        .university-selection {
+            display: flex;
+            gap: 10px;
+            flex-direction: row; /* 同一行に配置 */
+        }
 
-#university-initial {
-    width: 30%; /* 頭文字選択欄の幅 */
-}
+        #university-initial {
+            width: 30%; /* 頭文字選択欄の幅 */
+        }
 
-#university {
-    width: 70%; /* 大学名選択欄の幅 */
-}
+        #university {
+            width: 70%; /* 大学名選択欄の幅 */
+        }
 
-@media (min-width: 600px) {
-    body {
-        max-width: 400px;
-        padding: 20px;
-    }
-    h1 {
-        font-size: 28px;
-    }
-}
-
-　　</style>
-	
+        @media (min-width: 600px) {
+            body {
+                max-width: 400px;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+    <!-- LIFF SDKの読み込み -->
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 </head>
 <body>
@@ -117,7 +116,7 @@ input[type="submit"]:hover {
         <div class="form-group">
             <label for="year">学年</label>
             <select id="year" name="year" required>
-		<option value="">選択してください</option>
+                <option value="">選択してください</option>
                 <option value="1">1年</option>
                 <option value="2">2年</option>
                 <option value="3">3年</option>
@@ -130,7 +129,7 @@ input[type="submit"]:hover {
         <div class="form-group">
             <label for="club">部活動名</label>
             <select id="club" name="club" required>
-		<option value="">選択してください</option>
+                <option value="">選択してください</option>
                 <optgroup label="無所属">
                     <option>無所属</option>
                 </optgroup>
@@ -165,8 +164,8 @@ input[type="submit"]:hover {
                     <option>ローラーホッケー</option>
                     <option>タッチフットボール</option>
                     <option>セパタクロー</option>
-                  </optgroup>
-                  <optgroup label="格技・武道・武術">
+                </optgroup>
+                <optgroup label="格技・武道・武術">
                     <option>合気道</option>
                     <option>居合道</option>
                     <option>空手道</option>
@@ -182,18 +181,18 @@ input[type="submit"]:hover {
                     <option>フェンシング</option>
                     <option>ボクシング</option>
                     <option>レスリング</option>
-                  </optgroup>
-                  <optgroup label="陸上">
+                </optgroup>
+                <optgroup label="陸上">
                     <option>陸上</option>
-                  </optgroup>
-                  <optgroup label="射的系">
+                </optgroup>
+                <optgroup label="射的系">
                     <option>アーチェリー (洋弓)</option>
                     <option>弓道 (弓術)</option>
                     <option>ゴルフ</option>
                     <option>射撃</option>
                     <option>ボウリング</option>
-                  </optgroup>
-                　　　　<optgroup label="水泳・水上">
+                </optgroup>
+                <optgroup label="水泳・水上">
                     <option>カヌー</option>
                     <option>水泳・競泳</option>
                     <option>水球</option>
@@ -203,8 +202,8 @@ input[type="submit"]:hover {
                     <option>ボードセーリング</option>
                     <option>ライフセービング</option>
                     <option>ヨット</option>
-                　　</optgroup>
-                　　<optgroup label="その他">
+                </optgroup>
+                <optgroup label="その他">
                     <option>スキー</option>
                     <option>スケート</option>
                     <option>体操</option>
@@ -222,15 +221,15 @@ input[type="submit"]:hover {
                     <option>ワンダーフォーゲル</option>
                     <option>トライアスロン</option>
                     <option>無所属</option>
-                　　</optgroup>
-		  <optgroup label="学生団体・ドーミー">
+                </optgroup>
+                <optgroup label="学生団体・ドーミー">
                     <option>JNSA基金</option>
                     <option>ドーミー</option>
-                　　</optgroup>
+                </optgroup>
             </select>
         </div>
 
-        <input type="submit" value="送信">
+        <input type="submit" value="送信" id="submitButton">
     </form>
 
     <script>
@@ -245,7 +244,6 @@ input[type="submit"]:hover {
             'や': ['八洲学園大学', '安田女子大学', '山形大学', '山形県立保健医療大学', '山形県立米沢栄養大学', '山口大学', '山口学芸大学', '山口県立大学', 'ヤマザキ動物看護大学', '大和大学', '山梨大学', '山梨英和大学', '山梨学院大学', '山梨県立大学', '横浜国立大学', '横浜商科大学', '横浜市立大学', '横浜創英大学', '横浜美術大学', '横浜薬科大学', '四日市大学', '四日市看護医療大学'],
             'ら': ['酪農学園大学', '立教大学', '立正大学', '立命館大学', '立命館アジア太平洋大学', '琉球大学', '龍谷大学', '流通科学大学', '流通経済大学', '了徳寺大学', 'ルーテル学院大学', '麗澤大学', '令和健康科学大学', 'LEC東京リーガルマインド大学院大学'],
             'わ': ['和歌山大学', '和歌山県立医科大学', '和歌山信愛大学', '和光大学', '早稲田大学', '和洋女子大学']
-
         };
 
         const initialSelect = document.getElementById('university-initial');
@@ -264,50 +262,58 @@ input[type="submit"]:hover {
                 });
             }
         });
-	    
-    // LIFFの初期化
-    liff.init({ liffId: "取得したLIFF ID" })
-        .then(() => {
-            if (!liff.isLoggedIn()) {
+
+        // LIFFの初期化
+        liff.init({ liffId: "2006372514-P6LJy7wj" })
+            .then(() => {
+                if (!liff.isLoggedIn()) {
+                    liff.login();
+                }
+            })
+            .catch((err) => {
+                console.error('LIFF Initialization failed', err);
+            });
+
+        // LINEトーク画面上でメッセージ送信
+        function sendMessages(text) {
+            console.log('in sendMessages()');
+            liff.sendMessages([{
+                'type': 'text',
+                'text': text
+            }]).then(function () {
+                alert('メッセージが送信されました');
+                liff.closeWindow();
+            }).catch(function (error) {
+                window.alert('メッセージの送信に失敗しました: ' + error);
+            });
+        }
+
+        // submitボタンのクリックイベントにsendMessagesをバインド
+        document.getElementById('submitButton').addEventListener('click', function(e) {
+            e.preventDefault(); // デフォルトのフォーム送信を防止
+
+            // 入力された値を取得
+            const name = document.getElementById('name').value;
+            const university = document.getElementById('university').value;
+            const year = document.getElementById('year').value;
+            const club = document.getElementById('club').value;
+
+            // 必須項目のチェック
+            if (!name || !university || !year || !club) {
+                alert('すべての項目を入力してください');
+                return;
+            }
+
+            const message = `【送信内容】\n${name}\n${university}\n${year}\n${club}`;
+
+            // LIFFを使用してメッセージを送信
+            if (liff.isLoggedIn()) {
+                sendMessages(message);
+            } else {
+                alert('LINEにログインしていません');
                 liff.login();
             }
-        })
-        .catch((err) => {
-            console.error('LIFF Initialization failed', err);
         });
-
-    // LINEトーク画面上でメッセージ送信
-    function sendMessages(text) {
-        console.log('in sendMessages()');
-        liff.sendMessages([{
-            'type': 'text',
-            'text': text
-        }]).then(function () {
-            alert('メッセージが送信されました');
-            liff.closeWindow();
-        }).catch(function (error) {
-            window.alert('メッセージの送信に失敗しました: ' + error);
-        });
-    }
-
-    document.getElementById('studentForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const name = document.getElementById('name').value;
-        const university = document.getElementById('university').value;
-        const year = document.getElementById('year').value;
-        const club = document.getElementById('club').value;
-
-        const message = `【送信内容】\n${name}\n${university}\n${year}\n${club}`;
-
-        // LIFFを使用してメッセージを送信
-        if (liff.isLoggedIn()) {
-            sendMessages(message);
-        } else {
-            alert('LINEにログインしていません');
-            liff.login();
-        }
-    });
-</script>
+    </script>
 </body>
 </html>
