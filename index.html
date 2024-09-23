@@ -264,51 +264,50 @@ input[type="submit"]:hover {
                 });
             }
         });
-	// LIFFの初期化
-liff.init({ liffId: "2006372514-P6LJy7wj" })
-    .then(() => {
-        if (!liff.isLoggedIn()) {
-            liff.login();
-        }
-    })
-    .catch((err) => {
-        console.error('LIFF Initialization failed', err);
-    });
-
-document.getElementById('studentForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const name = document.getElementById('name').value;
-    const university = document.getElementById('university').value;
-    const year = document.getElementById('year').value;
-    const club = document.getElementById('club').value;
-
-    const message = `【送信内容】\n${name}\n${university}\n${year}\n${club}`;
-
-    // LIFFを使用して公式LINEにメッセージを送信
-    if (liff.isLoggedIn()) {
-        // shareTargetPickerを使用してメッセージを送信
-        liff.shareTargetPicker([{
-            type: 'text',
-            text: message
-        }])
-        .then((result) => {
-            if (result) {
-                alert('メッセージが送信されました');
-                liff.closeWindow();
-            } else {
-                alert('メッセージの送信がキャンセルされました');
+	    
+    // LIFFの初期化
+    liff.init({ liffId: "取得したLIFF ID" })
+        .then(() => {
+            if (!liff.isLoggedIn()) {
+                liff.login();
             }
         })
-        .catch((error) => {
-            console.error('Error sending message via shareTargetPicker', error);
-            alert('メッセージの送信に失敗しました');
+        .catch((err) => {
+            console.error('LIFF Initialization failed', err);
         });
-    } else {
-        alert('LINEにログインしていません');
-        liff.login();
+
+    // LINEトーク画面上でメッセージ送信
+    function sendMessages(text) {
+        console.log('in sendMessages()');
+        liff.sendMessages([{
+            'type': 'text',
+            'text': text
+        }]).then(function () {
+            alert('メッセージが送信されました');
+            liff.closeWindow();
+        }).catch(function (error) {
+            window.alert('メッセージの送信に失敗しました: ' + error);
+        });
     }
-});
-    </script>
+
+    document.getElementById('studentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const university = document.getElementById('university').value;
+        const year = document.getElementById('year').value;
+        const club = document.getElementById('club').value;
+
+        const message = `【送信内容】\n氏名: ${name}\n大学名: ${university}\n学年: ${year}\n部活動名: ${club}`;
+
+        // LIFFを使用してメッセージを送信
+        if (liff.isLoggedIn()) {
+            sendMessages(message);
+        } else {
+            alert('LINEにログインしていません');
+            liff.login();
+        }
+    });
+</script>
 </body>
 </html>
