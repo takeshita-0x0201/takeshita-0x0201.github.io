@@ -264,49 +264,51 @@ input[type="submit"]:hover {
                 });
             }
         });
+	// LIFFの初期化
+liff.init({ liffId: "2006372514-P6LJy7wj" })
+    .then(() => {
+        if (!liff.isLoggedIn()) {
+            liff.login();
+        }
+    })
+    .catch((err) => {
+        console.error('LIFF Initialization failed', err);
+    });
 
-        // LIFFの初期化
-        liff.init({ liffId: "2006372514-P6LJy7wj" })
-            .then(() => {
-                if (!liff.isLoggedIn()) {
-                    liff.login();
-                }
-            })
-            .catch((err) => {
-                console.error('LIFF Initialization failed', err);
-            });
+document.getElementById('studentForm').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-        document.getElementById('studentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+    const name = document.getElementById('name').value;
+    const university = document.getElementById('university').value;
+    const year = document.getElementById('year').value;
+    const club = document.getElementById('club').value;
 
-            const name = document.getElementById('name').value;
-            const university = document.getElementById('university').value;
-            const year = document.getElementById('year').value;
-            const club = document.getElementById('club').value;
+    const message = `【送信内容】\n${name}\n${university}\n${year}\n${club}`;
 
-            const message = `【送信内容】\n${name}\n${university}\n${year}\n${club}`;
-
-            // LIFFを使用してメッセージを送信
-            if (liff.isLoggedIn()) {
-                liff.sendMessages([
-                    {
-                        type: 'text',
-                        text: message
-                    }
-                ])
-                .then(() => {
-                    alert('メッセージが送信されました');
-                    liff.closeWindow();
-                })
-                .catch((error) => {
-                    console.error('Error sending message', error);
-                    alert('メッセージの送信に失敗しました');
-                });
+    // LIFFを使用して公式LINEにメッセージを送信
+    if (liff.isLoggedIn()) {
+        // shareTargetPickerを使用してメッセージを送信
+        liff.shareTargetPicker([{
+            type: 'text',
+            text: message
+        }])
+        .then((result) => {
+            if (result) {
+                alert('メッセージが送信されました');
+                liff.closeWindow();
             } else {
-                alert('LINEにログインしていません');
-                liff.login();
+                alert('メッセージの送信がキャンセルされました');
             }
+        })
+        .catch((error) => {
+            console.error('Error sending message via shareTargetPicker', error);
+            alert('メッセージの送信に失敗しました');
         });
+    } else {
+        alert('LINEにログインしていません');
+        liff.login();
+    }
+});
     </script>
 </body>
 </html>
