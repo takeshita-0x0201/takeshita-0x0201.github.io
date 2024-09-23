@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>初回登録フォーム</title>
 　　<style>
-    body {
+	  body {
     font-family: Arial, sans-serif;
     max-width: 100%;
     margin: 0 auto;
@@ -38,6 +38,10 @@ input, select {
     box-sizing: border-box;
 }
 
+select {
+    line-height: 2.5; /* 縦幅を倍に設定 */
+}
+
 input[type="submit"] {
     background-color: #4CAF50;
     color: white;
@@ -55,12 +59,15 @@ input[type="submit"]:hover {
 .university-selection {
     display: flex;
     gap: 10px;
-    flex-direction: column;
+    flex-direction: row; /* 同一行に配置 */
 }
 
-#university-initial,
+#university-initial {
+    width: 30%; /* 頭文字選択欄の幅 */
+}
+
 #university {
-    width: 100%;
+    width: 70%; /* 大学名選択欄の幅 */
 }
 
 @media (min-width: 600px) {
@@ -70,15 +77,6 @@ input[type="submit"]:hover {
     }
     h1 {
         font-size: 28px;
-    }
-    .university-selection {
-        flex-direction: row;
-    }
-    #university-initial {
-        width: 30%;
-    }
-    #university {
-        width: 70%;
     }
 }
 
